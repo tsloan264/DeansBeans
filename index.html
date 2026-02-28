@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dean's Petals & Produce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ─── HEADER ─── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img src="images/logo.png" alt="Dean's Petals &amp; Produce logo" class="logo-img" onerror="this.style.display='none'" />
+        <span class="logo-text">Dean's Petals &amp; Produce</span>
+      </div>
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#" onclick="openModal('available'); return false;">Today's Stand</a>
+        <a href="#" onclick="openModal('contact'); return false;">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─── MAIN ─── -->
+  <main class="main-grid">
+
+    <!-- Left: hero photo -->
+    <section class="hero-photo">
+      <div class="photo-frame">
+        <img src="images/stand1.jpg" alt="Dean's Petals &amp; Produce farm stand" class="stand-photo" onerror="this.parentElement.classList.add('photo-placeholder')" />
+        <div class="photo-overlay-tag">
+          <span>🌸 Fresh Daily · Akron, OH</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: about + CTAs -->
+    <section class="right-panel" id="about">
+
+      <!-- About -->
+      <div class="about-block">
+        <p class="eyebrow">About the Stand</p>
+        <h1 class="headline">Grown&nbsp;with&nbsp;love,<br /><em>shared with joy.</em></h1>
+        <p class="body-copy">
+          We're Nikki and Tiffany, and this little stand is named after our pup, Dean 🐾.
+          You'll find fresh-cut flower bouquets, seasonal produce, plants, and handmade crafts —
+          all locally grown and refreshed every morning. Self-serve and always open at
+          <strong>1934 Burlington Road, Akron</strong>.
+        </p>
+        <p class="payment-note">We accept <span class="pill">Cash</span> &amp; <span class="pill">Venmo</span></p>
+      </div>
+
+      <!-- CTA circles -->
+      <div class="cta-row">
+
+        <button class="cta-circle available-btn" onclick="openModal('available')">
+          <span class="cta-icon">🌼</span>
+          <span class="cta-label">See What's<br />Available Today</span>
+        </button>
+
+        <button class="cta-circle request-btn" onclick="openModal('request')">
+          <span class="cta-icon">📋</span>
+          <span class="cta-label">Request<br />an Item</span>
+        </button>
+
+        <button class="cta-circle contact-btn" onclick="openModal('contact')">
+          <span class="cta-icon">💌</span>
+          <span class="cta-label">Contact<br />Us</span>
+        </button>
+
+      </div>
+
+      <p class="dean-tagline">— Nikki &amp; Tiffany (and Dean 🐶🌱)</p>
+
+    </section>
+  </main>
+
+  <!-- ─── MODALS ─── -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
+
+  <!-- Available Today -->
+  <div class="modal" id="modal-available">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-icon">🌸</div>
+    <h2 class="modal-title">Today's Stand</h2>
+    <p class="modal-body">
+      We post every morning with what's fresh! Follow us on Instagram or Facebook
+      for today's update on bouquets, produce, plants, and more.
+    </p>
+    <div class="modal-links">
+      <a href="https://www.instagram.com/deanspetalsandproduce" target="_blank" class="modal-btn pink-btn">Instagram</a>
+      <a href="https://www.facebook.com/deanspetalsandproduce" target="_blank" class="modal-btn sage-btn">Facebook</a>
+    </div>
+    <p class="modal-note">Stand is self-serve and located at<br /><strong>1934 Burlington Road, Akron</strong></p>
+  </div>
+
+  <!-- Request an Item -->
+  <div class="modal" id="modal-request">
+    <button class="modal-close" onclick="closeModal()"></button>
+    <div class="modal-icon">📋</div>
+    <h2 class="modal-title">Request an Item</h2>
+    <p class="modal-body">Have something specific in mind? Send us a message and we'll do our best!</p>
+    <form class="request-form" onsubmit="handleRequest(event)">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="text" name="contact" placeholder="Phone or email" required />
+      <textarea name="message" placeholder="What are you looking for?" rows="3" required></textarea>
+      <button type="submit" class="modal-btn pink-btn full-width">Send Request</button>
+    </form>
+  </div>
+
+  <!-- Contact -->
+  <div class="modal" id="modal-contact">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-icon">💌</div>
+    <h2 class="modal-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <div>
+          <strong>Location</strong>
+          <p>1934 Burlington Road<br />Akron, OH</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">🕐</span>
+        <div>
+          <strong>Hours</strong>
+          <p>Self-serve, always open<br />(while supplies last)</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">💵</span>
+        <div>
+          <strong>Payment</strong>
+          <p>Cash &amp; Venmo</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📱</span>
+        <div>
+          <strong>Social</strong>
+          <a href="https://www.instagram.com/deanspetalsandproduce" target="_blank">@deanspetalsandproduce</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
