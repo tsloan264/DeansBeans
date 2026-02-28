@@ -6,81 +6,184 @@
   <title>Dean's Petals & Produce</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ─── HEADER ─── -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo-wrap">
-        <img src="images/logo.png" alt="Dean's Petals &amp; Produce logo" class="logo-img" onerror="this.style.display='none'" />
-        <span class="logo-text">Dean's Petals &amp; Produce</span>
-      </div>
-      <nav class="site-nav">
-        <a href="#about">About</a>
-        <a href="#" onclick="openModal('available'); return false;">Today's Stand</a>
-        <a href="#" onclick="openModal('contact'); return false;">Contact</a>
-      </nav>
+  <!-- ── BOTANICAL DECORATIONS ── -->
+  <div class="botanical botanical-left" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 820" fill="none"
+         stroke="#C4B09A" stroke-linecap="round" stroke-linejoin="round">
+      <!-- main stem -->
+      <path stroke-width="1.3" d="M78 820 C68 720 88 640 73 555 C58 468 82 385 67 302 C52 218 72 148 58 72"/>
+      <!-- leaf L1 bottom -->
+      <path stroke-width="1.1" d="M78 715 C28 685 4 642 10 600 C16 562 50 555 78 715 Z"/>
+      <line stroke-width="1" x1="78" y1="715" x2="22" y2="620"/>
+      <!-- leaf R1 -->
+      <path stroke-width="1.1" d="M74 635 C132 605 162 563 148 523 C134 486 106 488 74 635 Z"/>
+      <line stroke-width="1" x1="74" y1="635" x2="140" y2="540"/>
+      <!-- leaf L2 -->
+      <path stroke-width="1.1" d="M70 500 C22 474 2 438 10 406 C18 377 48 376 70 500 Z"/>
+      <line stroke-width="1" x1="70" y1="500" x2="20" y2="422"/>
+      <!-- small leaf R2 -->
+      <path stroke-width="1" d="M72 430 C118 406 140 370 128 340 C116 312 94 316 72 430 Z"/>
+      <line stroke-width=".9" x1="72" y1="430" x2="122" y2="354"/>
+      <!-- leaf L3 upper -->
+      <path stroke-width="1" d="M67 305 C26 288 8 258 16 232 C24 210 50 214 67 305 Z"/>
+      <line stroke-width=".9" x1="67" y1="305" x2="24" y2="248"/>
+      <!-- leaf R3 upper -->
+      <path stroke-width="1" d="M65 244 C106 222 124 190 113 165 C102 142 80 148 65 244 Z"/>
+      <line stroke-width=".9" x1="65" y1="244" x2="107" y2="178"/>
+      <!-- tiny leaf top -->
+      <path stroke-width=".9" d="M60 162 C28 150 14 126 22 108 C30 92 52 96 60 162 Z"/>
+      <line stroke-width=".8" x1="60" y1="162" x2="30" y2="120"/>
+    </svg>
+  </div>
+
+  <div class="botanical botanical-right" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 820" fill="none"
+         stroke="#C4B09A" stroke-linecap="round" stroke-linejoin="round">
+      <!-- mirrored stem -->
+      <path stroke-width="1.3" d="M132 820 C142 720 122 640 137 555 C152 468 128 385 143 302 C158 218 138 148 152 72"/>
+      <!-- leaf R1 bottom -->
+      <path stroke-width="1.1" d="M132 715 C182 685 206 642 200 600 C194 562 160 555 132 715 Z"/>
+      <line stroke-width="1" x1="132" y1="715" x2="188" y2="620"/>
+      <!-- leaf L1 -->
+      <path stroke-width="1.1" d="M136 635 C78 605 48 563 62 523 C76 486 104 488 136 635 Z"/>
+      <line stroke-width="1" x1="136" y1="635" x2="70" y2="540"/>
+      <!-- leaf R2 -->
+      <path stroke-width="1.1" d="M140 500 C188 474 208 438 200 406 C192 377 162 376 140 500 Z"/>
+      <line stroke-width="1" x1="140" y1="500" x2="190" y2="422"/>
+      <!-- small leaf L2 -->
+      <path stroke-width="1" d="M138 430 C92 406 70 370 82 340 C94 312 116 316 138 430 Z"/>
+      <line stroke-width=".9" x1="138" y1="430" x2="88" y2="354"/>
+      <!-- leaf R3 upper -->
+      <path stroke-width="1" d="M143 305 C184 288 202 258 194 232 C186 210 160 214 143 305 Z"/>
+      <line stroke-width=".9" x1="143" y1="305" x2="186" y2="248"/>
+      <!-- leaf L3 upper -->
+      <path stroke-width="1" d="M145 244 C104 222 86 190 97 165 C108 142 130 148 145 244 Z"/>
+      <line stroke-width=".9" x1="145" y1="244" x2="103" y2="178"/>
+      <!-- tiny leaf top -->
+      <path stroke-width=".9" d="M150 162 C182 150 196 126 188 108 C180 92 158 96 150 162 Z"/>
+      <line stroke-width=".8" x1="150" y1="162" x2="180" y2="120"/>
+    </svg>
+  </div>
+
+  <!-- ── PAGE ── -->
+  <div class="page">
+
+    <!-- Logo -->
+    <header class="logo-section">
+      <img src="images/logo.png" alt="Dean's Petals &amp; Produce" class="center-logo"
+           onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='block'" />
+      <p class="logo-fallback" style="display:none">
+        <span class="logo-fallback-text">Dean's Petals &amp; Produce</span>
+      </p>
+    </header>
+
+    <!-- Title row -->
+    <div class="title-section">
+      <div class="title-line"></div>
+      <h1 class="main-title">Grown with Love in Akron</h1>
+      <div class="title-line"></div>
     </div>
-  </header>
 
-  <!-- ─── MAIN ─── -->
-  <main class="main-grid">
+    <!-- Content grid: photo + about -->
+    <div class="content-grid">
 
-    <!-- Left: hero photo -->
-    <section class="hero-photo">
-      <div class="photo-frame">
-        <img src="images/stand1.jpg" alt="Dean's Petals &amp; Produce farm stand" class="stand-photo" onerror="this.parentElement.classList.add('photo-placeholder')" />
-        <div class="photo-overlay-tag">
-          <span>🌸 Fresh Daily · Akron, OH</span>
+      <div class="photo-col">
+        <img src="images/stand1.jpg" alt="Dean's Petals &amp; Produce farm stand" class="stand-img"
+             onerror="this.parentElement.classList.add('photo-fallback')" />
+      </div>
+
+      <div class="about-col">
+        <h2 class="about-heading">About Us</h2>
+        <p class="about-text">
+          We're Nikki &amp; Tiffany (and Dean 🐾!), sharing fresh-cut flower bouquets,
+          seasonal produce, plants, and handmade crafts. Locally grown, refreshed daily,
+          and always affordable. Thank you for supporting our little stand!
+        </p>
+        <div class="info-box">
+          <p>📍 1934 Burlington Road &nbsp;|&nbsp; 💵 Cash &amp; Venmo accepted</p>
+          <p>🌱 Self-Serve &amp; Always Open <em>(weather permitting)</em></p>
         </div>
       </div>
-    </section>
 
-    <!-- Right: about + CTAs -->
-    <section class="right-panel" id="about">
+    </div>
 
-      <!-- About -->
-      <div class="about-block">
-        <p class="eyebrow">About the Stand</p>
-        <h1 class="headline">Grown&nbsp;with&nbsp;love,<br /><em>shared with joy.</em></h1>
-        <p class="body-copy">
-          We're Nikki and Tiffany, and this little stand is named after our pup, Dean 🐾.
-          You'll find fresh-cut flower bouquets, seasonal produce, plants, and handmade crafts —
-          all locally grown and refreshed every morning. Self-serve and always open at
-          <strong>1934 Burlington Road, Akron</strong>.
-        </p>
-        <p class="payment-note">We accept <span class="pill">Cash</span> &amp; <span class="pill">Venmo</span></p>
-      </div>
+    <!-- Circle buttons -->
+    <div class="circles-section">
 
-      <!-- CTA circles -->
-      <div class="cta-row">
+      <button class="circle-btn sage-circle" onclick="openModal('available')">
+        <span class="badge">1</span>
+        <div class="circle-icon">
+          <!-- Calendar + carrot -->
+          <svg width="58" height="52" viewBox="0 0 58 52" fill="none" stroke="white"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="9" width="36" height="28" rx="3"/>
+            <line x1="2" y1="17" x2="38" y2="17"/>
+            <line x1="11" y1="5" x2="11" y2="13"/>
+            <line x1="27" y1="5" x2="27" y2="13"/>
+            <circle cx="11" cy="24" r="1.4" fill="white" stroke="none"/>
+            <circle cx="20" cy="24" r="1.4" fill="white" stroke="none"/>
+            <circle cx="29" cy="24" r="1.4" fill="white" stroke="none"/>
+            <circle cx="11" cy="31" r="1.4" fill="white" stroke="none"/>
+            <circle cx="20" cy="31" r="1.4" fill="white" stroke="none"/>
+            <circle cx="29" cy="31" r="1.4" fill="white" stroke="none"/>
+            <!-- carrot body -->
+            <path d="M46 14 L52 36 L40 36 Z"/>
+            <!-- carrot leaves -->
+            <path d="M46 14 C46 8 50 4 50 4"/>
+            <path d="M46 14 C42 8 44 3 44 3"/>
+            <path d="M46 14 C50 9 55 10 55 10"/>
+          </svg>
+        </div>
+        <span class="circle-title">SEE WHAT'S<br>FRESH TODAY</span>
+        <span class="circle-sub">(Links to our daily social update)</span>
+      </button>
 
-        <button class="cta-circle available-btn" onclick="openModal('available')">
-          <span class="cta-icon">🌼</span>
-          <span class="cta-label">See What's<br />Available Today</span>
-        </button>
+      <button class="circle-btn rose-circle" onclick="openModal('request')">
+        <span class="badge">2</span>
+        <div class="circle-icon">
+          <!-- Order form -->
+          <svg width="44" height="56" viewBox="0 0 44 56" fill="none" stroke="white"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 2 L32 2 L40 10 L40 54 L4 54 Z"/>
+            <path d="M32 2 L32 10 L40 10"/>
+            <text x="9" y="22" font-size="6.5" fill="white" font-family="Raleway,sans-serif"
+                  stroke="none" font-weight="600" letter-spacing="1">ORDER</text>
+            <line x1="9" y1="30" x2="33" y2="30"/>
+            <line x1="9" y1="37" x2="33" y2="37"/>
+            <line x1="9" y1="44" x2="24" y2="44"/>
+          </svg>
+        </div>
+        <span class="circle-title">REQUEST AN ITEM</span>
+        <span class="circle-sub">(Custom orders &amp; special requests)</span>
+      </button>
 
-        <button class="cta-circle request-btn" onclick="openModal('request')">
-          <span class="cta-icon">📋</span>
-          <span class="cta-label">Request<br />an Item</span>
-        </button>
+      <button class="circle-btn sage-circle" onclick="openModal('contact')">
+        <span class="badge">3</span>
+        <div class="circle-icon">
+          <!-- Pin + envelope -->
+          <svg width="62" height="48" viewBox="0 0 62 48" fill="none" stroke="white"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- pin -->
+            <path d="M13 2 C6 2 2 8 2 14 C2 24 13 34 13 34 C13 34 24 24 24 14 C24 8 20 2 13 2 Z"/>
+            <circle cx="13" cy="14" r="4"/>
+            <!-- envelope -->
+            <rect x="30" y="13" width="30" height="22" rx="2"/>
+            <path d="M30 15 L45 25 L60 15"/>
+          </svg>
+        </div>
+        <span class="circle-title">VISIT &amp;<br>CONTACT US</span>
+        <span class="circle-sub">(Map, directions &amp; info)</span>
+      </button>
 
-        <button class="cta-circle contact-btn" onclick="openModal('contact')">
-          <span class="cta-icon">💌</span>
-          <span class="cta-label">Contact<br />Us</span>
-        </button>
+    </div>
+  </div><!-- /.page -->
 
-      </div>
-
-      <p class="dean-tagline">— Nikki &amp; Tiffany (and Dean 🐶🌱)</p>
-
-    </section>
-  </main>
-
-  <!-- ─── MODALS ─── -->
+  <!-- ── MODALS ── -->
   <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
 
   <!-- Available Today -->
@@ -88,23 +191,21 @@
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-icon">🌸</div>
     <h2 class="modal-title">Today's Stand</h2>
-    <p class="modal-body">
-      We post every morning with what's fresh! Follow us on Instagram or Facebook
-      for today's update on bouquets, produce, plants, and more.
-    </p>
+    <p class="modal-body">We post every morning with what's fresh! Follow us on social media
+       for today's update on bouquets, produce, plants, and more.</p>
     <div class="modal-links">
       <a href="https://www.instagram.com/deanspetalsandproduce" target="_blank" class="modal-btn pink-btn">Instagram</a>
       <a href="https://www.facebook.com/deanspetalsandproduce" target="_blank" class="modal-btn sage-btn">Facebook</a>
     </div>
-    <p class="modal-note">Stand is self-serve and located at<br /><strong>1934 Burlington Road, Akron</strong></p>
+    <p class="modal-note">Stand is self-serve at<br><strong>1934 Burlington Road, Akron</strong></p>
   </div>
 
   <!-- Request an Item -->
   <div class="modal" id="modal-request">
-    <button class="modal-close" onclick="closeModal()"></button>
+    <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-icon">📋</div>
     <h2 class="modal-title">Request an Item</h2>
-    <p class="modal-body">Have something specific in mind? Send us a message and we'll do our best!</p>
+    <p class="modal-body">Have something specific in mind? Send us a message!</p>
     <form class="request-form" onsubmit="handleRequest(event)">
       <input type="text" name="name" placeholder="Your name" required />
       <input type="text" name="contact" placeholder="Phone or email" required />
@@ -117,33 +218,23 @@
   <div class="modal" id="modal-contact">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-icon">💌</div>
-    <h2 class="modal-title">Get in Touch</h2>
+    <h2 class="modal-title">Visit &amp; Contact Us</h2>
     <div class="contact-grid">
       <div class="contact-item">
         <span class="contact-icon">📍</span>
-        <div>
-          <strong>Location</strong>
-          <p>1934 Burlington Road<br />Akron, OH</p>
-        </div>
+        <div><strong>Location</strong><p>1934 Burlington Road<br>Akron, OH</p></div>
       </div>
       <div class="contact-item">
         <span class="contact-icon">🕐</span>
-        <div>
-          <strong>Hours</strong>
-          <p>Self-serve, always open<br />(while supplies last)</p>
-        </div>
+        <div><strong>Hours</strong><p>Self-serve, always open<br>(while supplies last)</p></div>
       </div>
       <div class="contact-item">
         <span class="contact-icon">💵</span>
-        <div>
-          <strong>Payment</strong>
-          <p>Cash &amp; Venmo</p>
-        </div>
+        <div><strong>Payment</strong><p>Cash &amp; Venmo</p></div>
       </div>
       <div class="contact-item">
         <span class="contact-icon">📱</span>
-        <div>
-          <strong>Social</strong>
+        <div><strong>Social</strong>
           <a href="https://www.instagram.com/deanspetalsandproduce" target="_blank">@deanspetalsandproduce</a>
         </div>
       </div>
