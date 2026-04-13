@@ -417,6 +417,112 @@ html, body {
 .success-msg .big-check { font-size: 2.4rem; display: block; margin-bottom: 8px; }
 .success-msg p { font-size: .9rem; color: var(--sage); font-weight: 500; }
 
+/* ── JOTFORM WIDE MODAL ───────────────────────────────────── */
+.modal-wide {
+  width: min(660px, 96vw);
+  padding: 0;
+  overflow: hidden;
+  /* Override the default max-height to allow scrolling */
+  max-height: 90vh;
+}
+
+/* Jotform embed container */
+.jotform-embed {
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sage-light) transparent;
+}
+
+.jotform-embed::-webkit-scrollbar { width: 5px; }
+.jotform-embed::-webkit-scrollbar-track { background: transparent; }
+.jotform-embed::-webkit-scrollbar-thumb { background: var(--sage-light); border-radius: 4px; }
+
+/* Jotform iframe (used when Jotform is live) */
+.jotform-iframe {
+  width: 100%;
+  min-height: 640px;
+  border: none;
+  display: block;
+}
+
+/* Placeholder layout (shown before Jotform is configured) */
+.jotform-placeholder {
+  padding: 36px 36px 32px;
+}
+
+/* Request type pills */
+.request-type-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 0 0 22px;
+}
+
+.pill {
+  display: inline-block;
+  background: var(--cream-dark);
+  color: var(--text-mid);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 5px 13px;
+  border-radius: 50px;
+  border: 1.5px solid #ddd4c8;
+}
+
+.placeholder-cta-label {
+  font-size: .78rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+/* Enhanced request form for wide modal */
+.jotform-placeholder .request-form { gap: 10px; }
+
+.jotform-placeholder .request-form select {
+  width: 100%;
+  border: 1.5px solid #e0d9d4;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: 'Raleway', sans-serif;
+  font-size: .87rem;
+  color: var(--text);
+  background: var(--cream);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A6E68' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+
+.jotform-placeholder .request-form select:focus { border-color: var(--sage-light); }
+.jotform-placeholder .request-form select option[disabled] { color: #b0a49e; }
+
+/* Close button repositioned for wide modal */
+.modal-wide .modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 10;
+  background: rgba(255,255,255,.9);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(44,37,32,.12);
+}
+
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 820px) {
   html, body { overflow: auto; }
