@@ -201,17 +201,69 @@
   </div>
 
   <!-- Request an Item -->
-  <div class="modal" id="modal-request">
+  <div class="modal modal-wide" id="modal-request">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-icon">📋</div>
-    <h2 class="modal-title">Request an Item</h2>
-    <p class="modal-body">Have something specific in mind? Send us a message!</p>
-    <form class="request-form" onsubmit="handleRequest(event)">
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="text" name="contact" placeholder="Phone or email" required />
-      <textarea name="message" placeholder="What are you looking for?" rows="3" required></textarea>
-      <button type="submit" class="modal-btn pink-btn full-width">Send Request</button>
-    </form>
+
+    <!--
+      ══════════════════════════════════════════════════════════
+      JOTFORM EMBED — Follow these steps to activate:
+        1. Build the form using jotform-spec.md
+        2. Publish it at jotform.com
+        3. Copy your Form ID from the published URL
+           e.g. https://form.jotform.com/251234567890  →  ID: 251234567890
+        4. Replace YOUR_JOTFORM_FORM_ID below with that number
+        5. Remove the "jotform-not-configured" class from the
+           .jotform-embed div, and delete the placeholder block
+      ══════════════════════════════════════════════════════════
+    -->
+    <div class="jotform-embed jotform-not-configured">
+
+      <!-- ── PLACEHOLDER (remove this block once Jotform is live) ── -->
+      <div class="jotform-placeholder">
+        <div class="modal-icon">💐</div>
+        <h2 class="modal-title">Order &amp; Request Form</h2>
+        <p class="modal-body">
+          Reserve items, request custom creations, or send us a message!<br>
+          We'll have everything fresh and ready for you.
+        </p>
+        <div class="request-type-pills">
+          <span class="pill">🌸 Pre-Reserve Items</span>
+          <span class="pill">🎁 Custom Request</span>
+          <span class="pill">🎉 Event / Large Order</span>
+          <span class="pill">💬 General Question</span>
+        </div>
+        <p class="placeholder-cta-label">Send us a quick message to get started:</p>
+        <form class="request-form" onsubmit="handleRequest(event)">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="tel" name="phone" placeholder="Phone number" />
+          <input type="email" name="contact" placeholder="Email address" required />
+          <select name="request_type">
+            <option value="" disabled selected>What can we help you with?</option>
+            <option>Pre-Reserve Items</option>
+            <option>Custom Request</option>
+            <option>Event or Large Order</option>
+            <option>General Question</option>
+          </select>
+          <textarea name="message" placeholder="Tell us what you're looking for… (e.g. 2 sunflower bouquets, custom birthday gift)" rows="3" required></textarea>
+          <button type="submit" class="modal-btn pink-btn full-width">Send My Request 🌸</button>
+        </form>
+      </div>
+      <!-- ── END PLACEHOLDER ── -->
+
+      <!-- ── JOTFORM IFRAME (uncomment once form is published) ──
+      <iframe
+        id="JotFormIFrame"
+        title="Dean's Petals & Produce – Order & Request Form"
+        src="https://form.jotform.com/YOUR_JOTFORM_FORM_ID"
+        allow="geolocation; microphone; camera"
+        allowfullscreen
+        scrolling="yes"
+        frameborder="0"
+        class="jotform-iframe"
+      ></iframe>
+      ── END JOTFORM IFRAME ── -->
+
+    </div>
   </div>
 
   <!-- Contact -->
